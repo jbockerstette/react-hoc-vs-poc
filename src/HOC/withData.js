@@ -1,7 +1,7 @@
 import React from 'react';
 
-const withData = WrappedComponent =>
-  class extends React.Component {
+const withData = WrappedComponent => {
+  class C extends React.Component {
     constructor(props, context) {
       super(props, context);
       this.state = { data: 0 };
@@ -23,6 +23,11 @@ const withData = WrappedComponent =>
     render() {
       return <WrappedComponent {...this.props} data={this.state.data} />;
     }
-  };
+  }
+  C.displayName = `withData(${WrappedComponent.displayName ||
+    WrappedComponent.name})`;
+  C.WrappedComponent = WrappedComponent;
+  return C;
+};
 
 export default withData;

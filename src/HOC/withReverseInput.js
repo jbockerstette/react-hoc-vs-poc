@@ -2,7 +2,7 @@ import React from 'react';
 
 function withReverseInput(name) {
   return function enhancer(WrappedComponent) {
-    return class extends React.Component {
+    class C extends React.Component {
       constructor(props) {
         super(props);
         this.handleChange = this.handleChange.bind(this);
@@ -41,7 +41,11 @@ function withReverseInput(name) {
           </div>
         );
       }
-    };
+    }
+    C.displayName = `withReverseInput(${WrappedComponent.displayName ||
+      WrappedComponent.name})`;
+    C.WrappedComponent = WrappedComponent;
+    return C;
   };
 }
 export default withReverseInput;
