@@ -5,6 +5,7 @@ import withReverseInput from './HOC/withReverseInput';
 import MyInput from './components/MyInput';
 import ReverseInput from './POC/ReverseInput';
 import withData from './HOC/withData';
+import GetData from './POC/GetData';
 
 const MyReverseInput = withReverseInput('myInput')(MyInput);
 
@@ -38,7 +39,9 @@ class App extends Component {
           <div className="row">
             <span className="col">Get Data</span>
             <span className="col">{data}</span>
-            <span className="col">POC Get Data</span>
+            <GetData
+              render={renderData => <span className="col">{renderData}</span>}
+            />
           </div>
         </div>
       </div>
