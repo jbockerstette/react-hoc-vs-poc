@@ -4,6 +4,7 @@ import './App.css';
 import withReverseInput from './HOC/withReverseInput';
 import MyInput from './components/MyInput';
 import ReverseInput from './POC/ReverseInput';
+import withData from './HOC/withData';
 
 const MyReverseInput = withReverseInput('myInput')(MyInput);
 
@@ -11,6 +12,8 @@ class App extends Component {
   componentDidMount() {}
 
   render() {
+    // eslint-disable-next-line react/prop-types
+    const { data } = this.props;
     return (
       <div className="App">
         <header className="App-header">
@@ -32,10 +35,15 @@ class App extends Component {
               <ReverseInput />
             </span>
           </div>
+          <div className="row">
+            <span className="col">Get Data</span>
+            <span className="col">{data}</span>
+            <span className="col">POC Get Data</span>
+          </div>
         </div>
       </div>
     );
   }
 }
 
-export default App;
+export default withData(App);
