@@ -22,7 +22,31 @@
   font-size: large;
 }
 
+.container {
+  display: grid;
+  text-align: left;
+}
+
+.row {
+  display: grid;
+  grid-gap: 8px 8px;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.col {
+  padding: 4px;
+}
+
+.title {
+  font-size: 20px;
+  font-weight: bold;
+}
+
 @keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
