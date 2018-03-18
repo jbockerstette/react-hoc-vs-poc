@@ -3,11 +3,15 @@ import logo from './logo.svg';
 import './App.css';
 import withReverseInput from './HOC/withReverseInput';
 import MyInput from './components/MyInput';
+import Counter from './components/Counter';
 import ReverseInput from './POC/ReverseInput';
 import withData from './HOC/withData';
 import GetData from './POC/GetData';
+import withShouldComponentUpdate from './HOC/withShouldComponentUpdate';
 
 const MyReverseInput = withReverseInput('myInput')(MyInput);
+
+const ShouldUpdateCounter = withShouldComponentUpdate()(Counter);
 
 class App extends Component {
   componentDidMount() {}
@@ -42,6 +46,13 @@ class App extends Component {
             <GetData
               render={renderData => <span className="col">{renderData}</span>}
             />
+          </div>
+          <div className="row">
+            <span className="col">Implement Should Update</span>
+            <span className="col">
+              <ShouldUpdateCounter />
+            </span>
+            <span className="col">TODO</span>
           </div>
         </div>
       </div>
