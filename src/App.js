@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import withReverseInput from './HOC/withReverseInput';
+import MyInput from './components/MyInput';
 
-const myInput = <input name="inputReverse" type="text" />;
+const MyReverseInput = withReverseInput('myInput')(MyInput);
 
 class App extends Component {
   componentDidMount() {}
@@ -14,7 +16,7 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">Welcome to React</h1>
         </header>
-        {myInput}
+        <MyReverseInput name="myInput" />
       </div>
     );
   }
