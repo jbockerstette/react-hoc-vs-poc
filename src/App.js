@@ -8,6 +8,7 @@ import ReverseInput from './POC/ReverseInput';
 import withData from './HOC/withData';
 import GetData from './POC/GetData';
 import withShouldComponentUpdate from './HOC/withShouldComponentUpdate';
+import ShouldCompUpdate from './POC/ShouldCompUpdate';
 
 const MyReverseInput = withReverseInput('myInput')(MyInput);
 
@@ -23,7 +24,13 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
+          <h1 className="App-title">
+            Implementing 4 HOC's as Plain Old Components
+          </h1>
+          <h5>
+            Showing that you can share code without using HOC pattern. The POC
+            approach is more flexible and explicit.
+          </h5>
         </header>
         <div className="container">
           <div className="row title">
@@ -52,7 +59,9 @@ class App extends Component {
             <span className="col">
               <ShouldUpdateCounter />
             </span>
-            <span className="col">TODO</span>
+            <span className="col">
+              <ShouldCompUpdate myComp={Counter} />
+            </span>
           </div>
         </div>
       </div>

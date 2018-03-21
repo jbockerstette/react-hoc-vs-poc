@@ -3,7 +3,6 @@ import { isEqual } from 'lodash';
 const withShouldComponentUpdate = () => WrappedComponent => {
   class C extends WrappedComponent {
     shouldComponentUpdate(nextProps, nextState) {
-      console.log(this.state, nextState);
       if (!isEqual(this.props, nextProps)) {
         return true;
       }
@@ -11,8 +10,6 @@ const withShouldComponentUpdate = () => WrappedComponent => {
       if (!isEqual(this.state, nextState)) {
         return true;
       }
-      console.log('Dont update');
-
       return false;
     }
   }
