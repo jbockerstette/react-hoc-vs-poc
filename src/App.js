@@ -8,11 +8,16 @@ import ReverseInput from './POC/ReverseInput';
 import withData from './HOC/withData';
 import GetData from './POC/GetData';
 import withShouldComponentUpdate from './HOC/withShouldComponentUpdate';
+import withChildrenSort from './HOC/withChildrenSort';
 import ShouldCompUpdate from './POC/ShouldCompUpdate';
+import MyList from './components/MyList';
+import SortedList from './POC/SortedList';
 
 const MyReverseInput = withReverseInput('myInput')(MyInput);
 
 const ShouldUpdateCounter = withShouldComponentUpdate()(Counter);
+
+const MySortedList = withChildrenSort((a, b) => a > b)(MyList);
 
 class App extends Component {
   componentDidMount() {}
@@ -61,6 +66,27 @@ class App extends Component {
             </span>
             <span className="col">
               <ShouldCompUpdate myComp={Counter} />
+            </span>
+          </div>
+          <div className="row">
+            <span className="col">Sort Children</span>
+            <span className="col">
+              <MySortedList>
+                <li>Dog</li>
+                <li>Cat</li>
+                <li>Mouse</li>
+                <li>Whale</li>
+                <li>Lizard</li>
+              </MySortedList>
+            </span>
+            <span className="col">
+              <SortedList sortFn={(a, b) => a > b}>
+                <li>Dog</li>
+                <li>Cat</li>
+                <li>Mouse</li>
+                <li>Whale</li>
+                <li>Lizard</li>
+              </SortedList>
             </span>
           </div>
         </div>

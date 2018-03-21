@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { isEqual } from 'lodash';
 
-function enhance(WrappedComponent) {
+const enhance = WrappedComponent => {
   class C extends WrappedComponent {
     shouldComponentUpdate(nextProps, nextState) {
       if (!isEqual(this.props, nextProps)) {
@@ -16,7 +16,7 @@ function enhance(WrappedComponent) {
     }
   }
   return C;
-}
+};
 
 class ShouldCompUpdate extends Component {
   constructor(props, context) {
